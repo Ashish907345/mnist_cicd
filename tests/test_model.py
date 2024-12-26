@@ -19,7 +19,7 @@ def test_input_output_shape():
     assert output.shape == (1, 10), f"Output shape is {output.shape}, should be (1, 10)"
 
 def test_model_accuracy():
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cpu")
     model = SimpleCNN().to(device)
     
     # Load test data
