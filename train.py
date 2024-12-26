@@ -41,8 +41,8 @@ def train():
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     if not os.path.exists('models'):
         os.makedirs('models')
-    # Save only the model state dict with weights_only=True
-    torch.save(model.state_dict(), f'models/model_{timestamp}.pth', weights_only=True)
+    # Save only the state dict
+    torch.save(model.state_dict(), f'models/model_{timestamp}.pth')
     
 if __name__ == "__main__":
     train() 

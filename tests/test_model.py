@@ -31,14 +31,14 @@ def test_model_accuracy():
     test_dataset = datasets.MNIST('data', train=False, download=True, transform=transform)
     test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=1000)
     
-    # Load the latest model safely
+    # Load the latest model
     import glob
     import os
     
     model_files = glob.glob('models/model_*.pth')
     latest_model = max(model_files, key=os.path.getctime)
-    # Load state dict with weights_only=True
-    model.load_state_dict(torch.load(latest_model, weights_only=True))
+    # Load state dict
+    model.load_state_dict(torch.load(latest_model))
     
     model.eval()
     correct = 0
